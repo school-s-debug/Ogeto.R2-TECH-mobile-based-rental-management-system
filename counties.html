@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Counties We Serve</title>
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  background:#f4f6f8;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,#1e90ff,#00c6ff);
+  color:white;
+  text-align:center;
+  padding:20px;
+}
+
+header h1{
+  font-size:22px;
+}
+
+header p{
+  font-size:14px;
+  margin-top:5px;
+}
+
+/* SEARCH */
+.search-box{
+  padding:15px;
+}
+
+.search-box input{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:30px;
+  outline:none;
+  font-size:15px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* COUNTY LIST */
+.county-list{
+  padding:15px;
+}
+
+.county{
+  background:white;
+  margin-bottom:15px;
+  padding:15px;
+  border-radius:15px;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.15);
+  cursor:pointer;
+  transform:translateY(30px);
+  opacity:0;
+  transition:0.4s;
+}
+
+.county.show{
+  transform:translateY(0);
+  opacity:1;
+}
+
+.county i{
+  font-size:28px;
+  color:#1e90ff;
+}
+
+.county:hover,
+.county:active{
+  background:#e6f2ff;
+  transform:scale(1.04);
+}
+
+.county h3{
+  font-size:16px;
+}
+
+.county span{
+  font-size:13px;
+  color:#555;
+}
+
+/* FOOTER */
+footer{
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:10px;
+  font-size:12px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>📍 Counties We Serve</h1>
+  <p>Tap a county to view available rentals</p>
+</header>
+
+<div class="search-box">
+  <input type="text" id="search" placeholder="Search county...">
+</div>
+
+<section class="county-list" id="countyList">
+
+  <div class="county">
+    <i class="fas fa-city"></i>
+    <div>
+      <h3>Nairobi County</h3>
+      <span>Shops • Single Rooms • One Bedroom</span>
+    </div>
+  </div>
+
+  <div class="county">
+    <i class="fas fa-home"></i>
+    <div>
+      <h3>Kiambu County</h3>
+      <span>Affordable rental houses</span>
+    </div>
+  </div>
+
+  <div class="county">
+    <i class="fas fa-building"></i>
+    <div>
+      <h3>Machakos County</h3>
+      <span>Urban & rural rentals</span>
+    </div>
+  </div>
+
+  <div class="county">
+    <i class="fas fa-map"></i>
+    <div>
+      <h3>Kajiado County</h3>
+      <span>Spacious residential rentals</span>
+    </div>
+  </div>
+
+  <div class="county">
+    <i class="fas fa-water"></i>
+    <div>
+      <h3>Mombasa County</h3>
+      <span>Beachside rentals</span>
+    </div>
+  </div>
+
+  <div class="county">
+    <i class="fas fa-industry"></i>
+    <div>
+      <h3>Kisumu County</h3>
+      <span>City & lakeside homes</span>
+    </div>
+  </div>
+
+  <div class="county">
+    <i class="fas fa-road"></i>
+    <div>
+      <h3>Nakuru County</h3>
+      <span>Business & residential rentals</span>
+    </div>
+  </div>
+
+  <div class="county">
+    <i class="fas fa-university"></i>
+    <div>
+      <h3>Uasin Gishu County</h3>
+      <span>Student-friendly housing</span>
+    </div>
+  </div>
+
+  <div class="county">
+    <i class="fas fa-tree"></i>
+    <div>
+      <h3>Meru County</h3>
+      <span>Quiet & affordable homes</span>
+    </div>
+  </div>
+
+  <div class="county">
+    <i class="fas fa-mountain"></i>
+    <div>
+      <h3>Nyeri County</h3>
+      <span>Comfortable family rentals</span>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  © 2026 RentEasy | Mobile Rental Management System
+</footer>
+
+<script>
+/* SEARCH FUNCTION */
+const search = document.getElementById("search");
+search.addEventListener("keyup", () => {
+  let value = search.value.toLowerCase();
+  document.querySelectorAll(".county").forEach(c => {
+    c.style.display = c.innerText.toLowerCase().includes(value) ? "flex" : "none";
+  });
+});
+
+/* SCROLL ANIMATION */
+const counties = document.querySelectorAll(".county");
+const showOnScroll = () => {
+  counties.forEach(c => {
+    const top = c.getBoundingClientRect().top;
+    if(top < window.innerHeight - 50){
+      c.classList.add("show");
+    }
+  });
+};
+window.addEventListener("scroll", showOnScroll);
+showOnScroll();
+
+/* CLICK ACTION */
+document.querySelectorAll(".county").forEach(c => {
+  c.onclick = () => {
+    alert("This county will display available rentals.");
+  };
+});
+</script>
+
+</body>
+</html>
