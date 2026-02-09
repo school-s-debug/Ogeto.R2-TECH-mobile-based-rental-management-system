@@ -103,12 +103,12 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
           }
         if (password.length < 6) {
-            error.textContent = "Password must be at least 6 characters.";
+            error.textContent = "Incorect Password.";
             error.style.color = "red";
             return;
         }
 
-        document.getElementById("btn").style.display = "flex";
+       
  document.getElementById("successPopup").style.display = "flex";
 
 
@@ -118,5 +118,6 @@ document.addEventListener("DOMContentLoaded", function () {
 function closeSuccess() {
     document.getElementById("successPopup").style.display = "none";
 }
+
 
 
