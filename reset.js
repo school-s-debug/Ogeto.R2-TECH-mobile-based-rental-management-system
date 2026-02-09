@@ -12,6 +12,7 @@ const error=document.getElementById("error")
 
 if(email==="" || id==="'"){
     alert("all filleds must be filled!")
+    return;
 }
 
  if (!email.includes("@") || !email.includes(".")) {
@@ -118,3 +119,4 @@ document.getElementById("btn").style.display="flex"
 
          });
 });
+
