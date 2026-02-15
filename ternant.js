@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
 
         const email = document.getElementById("email").value.trim();
-        const phoneNumber = document.getElementById("phoneNumber").value.trim();
+        const phonnumber = document.getElementById("phoneNumber").value.trim();
         const area = document.getElementById("area").value.trim();
         const password1 = document.getElementById("password1").value;
         const password2 = document.getElementById("password2").value;
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
         error.style.color = "red";
 
         // Check empty fields
-        if (email === "" || phoneNumber === "" || textarea === "" || password1 === "" || password2 === "") {
+        if (email === "" || phonenumber === "" || textarea === "" || password1 === "" || password2 === "") {
             alert("Please fill in all the fields before you submit!");
             return;
         }
@@ -149,14 +149,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Phone validation
-        if (phoneNumber.length < 10) {
+        if (phonenumber.length < 10) {
             alert("Invalid Number! Phone number must be at least 10 digits.");
             return;
         }
 
         // area validation
-        if (textarea === "") {
-            alert("Please specify at least one area of interest.");
+        if (area === "") {
+            alert("Please specify at least one area of interest before you submit.");
             return;
         }
 
@@ -180,6 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function closeSuccess() {
     document.getElementById("successPopup").style.display = "none";
 }
+
 
 
 
