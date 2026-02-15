@@ -120,10 +120,6 @@ function closeSuccess() {
 }
 
 
-
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
 
     const form = document.getElementById("joinform");
@@ -133,71 +129,57 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const email = document.getElementById("email").value.trim();
         const phoneNumber = document.getElementById("phoneNumber").value.trim();
-       const textarea = document.getElementById("textarea").value.trim();
+        const textarea = document.getElementById("textarea").value.trim();
         const password1 = document.getElementById("password1").value;
-        const Password2 = document.getElementById("password2").value;
+        const password2 = document.getElementById("password2").value;
         const error = document.getElementById("error");
-       // const successpopup = document.getElementById("successpopup").style.display="flex";
-        
-
-
-
 
         error.style.color = "red";
 
-        if (email === "" || phoneNumber === ""  || password1 === "" || Password2 === "") {
-           alert("please fill in all the filleds before you submit!")
+        // Check empty fields
+        if (email === "" || phoneNumber === "" || textarea === "" || password1 === "" || password2 === "") {
+            alert("Please fill in all the fields before you submit!");
             return;
         }
 
+        // Email validation
         if (!email.includes("@") || !email.includes(".")) {
             error.textContent = "Enter a valid email address.";
             return;
         }
 
+        // Phone validation
         if (phoneNumber.length < 10) {
-         alert("Invalid Number! Phone number must be at least 10 digits.");
-            return;
-
-            
-        }
-
-       if (textarea==="") {
-         alert("Please specify atleast one area of intrest..");
-            return;
-
-
-        if (password.length < 6)|| password.includes("@") {
-            error.textContent = " Create a strong Password with at least 6 characters and a special character '@'.";
+            alert("Invalid Number! Phone number must be at least 10 digits.");
             return;
         }
-       
 
-        if (password1 !== Password2) {
-            alert( "Passwords do not match.");
+        // Textarea validation
+        if (textarea === "") {
+            alert("Please specify at least one area of interest.");
             return;
         }
-    document.getElementById("successPopup").style.display = "flex";
 
- return;
- 
+        // Password validation
+        if (password1.length < 6 || !password1.includes("@")) {
+            error.textContent = "Create a strong Password with at least 6 characters and include '@'.";
+            return;
+        }
 
-       // error.style.color = "green";
-       // error.textContent = "Validation successful. Processing login...";
+        // Match passwords
+        if (password1 !== password2) {
+            alert("Passwords do not match.");
+            return;
+        }
 
-        
-        // Example redirect
-        // window.location.href = "tenant-dashboard.html";
+        // SUCCESS
+        document.getElementById("successPopup").style.display = "flex";
     });
 });
-function showSuccess() {
-    document.getElementById("successPopup").style.display = "flex";
-}
 
 function closeSuccess() {
     document.getElementById("successPopup").style.display = "none";
 }
-
 
 
 
