@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const email = document.getElementById("email").value.trim();
         const phoneNumber = document.getElementById("phoneNumber").value.trim();
-        const textarea = document.getElementById("textarea").value.trim();
+        const area = document.getElementById("area").value.trim();
         const password1 = document.getElementById("password1").value;
         const password2 = document.getElementById("password2").value;
         const error = document.getElementById("error");
@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // Textarea validation
+        // area validation
         if (textarea === "") {
             alert("Please specify at least one area of interest.");
             return;
@@ -180,6 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function closeSuccess() {
     document.getElementById("successPopup").style.display = "none";
 }
+
 
 
 
